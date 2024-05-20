@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
-import sw_design.YNUMarketplace.exception.message.authMessage;
+import sw_design.YNUMarketplace.exception.message.AuthExceptionMessage;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         response.setCharacterEncoding("UTF-8");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        response.getWriter().write(authMessage.UnAuthenticatedUserAccess);
+        response.getWriter().write(AuthExceptionMessage.UnAuthenticatedUserAccess);
     }
 
 }
