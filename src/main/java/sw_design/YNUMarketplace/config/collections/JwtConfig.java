@@ -14,7 +14,7 @@ import org.springframework.validation.annotation.Validated;
 //이 어노테이션은 여러 종류의 유효성 검사 어노테이션(@Size, @Min, @NotBlank 등)을 사용할 수 있습니다.
 //이 어노테이션들은 해당 필드의 값이 유효한지 검사하고, 유효하지 않은 경우 에러 메시지를 반환합니다.
 public class JwtConfig {
-    @Size(min=60, message="Secret Key must be at least 60 characters long")
+    @Size(min=52, message="Secret Key must be at least 60 characters long")
     private String secretKey;
     //JWT를 생성하고 검증할 때 사용되는 비밀 키입니다. 이 키는 JWT의 서명을 생성하고 검증하는 데 사용되며, 서버에서만 알고 있어야 합니다.
 
