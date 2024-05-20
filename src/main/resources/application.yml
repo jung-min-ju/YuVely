@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    dbcp:
+      test-on-borrow: true
+      validation-query: select 1
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+logging:
+  level:
+    org:
+      springframework: INFO
