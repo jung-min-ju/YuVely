@@ -1,17 +1,16 @@
 package sw_design.YNUMarketplace.domain.user.model;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import sw_design.YNUMarketplace.domain.product.model.Product;
 
 import java.util.List;
 
 @Entity
+@Getter
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "user")
+@Builder
 public class User {
 
     @Id
@@ -20,7 +19,7 @@ public class User {
     private Long id;
 
     @Column(nullable = false, length = 255, unique = true)
-    private String email;
+    private String emailId;
 
     @Column(nullable = false, length = 11, unique = true)
     private String phoneNum;
@@ -28,8 +27,16 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 10)
+    private UserRoleEnum role;
+
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> productList;
+
+    public enum UserRoleEnum {
+        User, ADMIN
+    }
 }
 
 //1. mappedBy : 현재 db가 종속테이블임을 나타냄
