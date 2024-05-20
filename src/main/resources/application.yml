@@ -20,3 +20,12 @@ logging:
   level:
     org:
       springframework: INFO
+
+security:
+  jwt:
+    access-token-expiration-minutes : 259200000
+    refresh-token-expiration-minutes: 432000000
+    secret-key : ${SECRET_KEY}
+
+    #refreshToken time : 1000L * 60 * 60 * 24 * 5 //432000000
+    #accessToken time : 1000L * 60 * 60 * 24 * 3 //259200000
