@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import sw_design.YNUMarketplace.exception.collections.business.TokenMissingException;
 import sw_design.YNUMarketplace.exception.collections.redis.RefreshTokenExpirationException;
 import sw_design.YNUMarketplace.springSecurity.jwt.JwtTokenProvider;
-import sw_design.YNUMarketplace.springSecurity.redis.dto.AccessTokenDto;
-import sw_design.YNUMarketplace.springSecurity.redis.dto.TokenSubAndRoleDto;
+import sw_design.YNUMarketplace.springSecurity.redis.dto.jwt.AccessTokenDto;
+import sw_design.YNUMarketplace.springSecurity.redis.dto.jwt.TokenSubAndRoleDto;
 
 @Service
 @RequiredArgsConstructor
