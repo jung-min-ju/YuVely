@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sw_design.YNUMarketplace.springSecurity.jwt.service.JwtService;
-import sw_design.YNUMarketplace.springSecurity.redis.dto.AccessTokenDto;
+import sw_design.YNUMarketplace.springSecurity.redis.dto.jwt.AccessTokenDto;
 
 @RestController
 @AllArgsConstructor
