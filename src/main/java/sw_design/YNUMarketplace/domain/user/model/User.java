@@ -35,7 +35,7 @@ public class User {
     private List<Product> productList;
 
     public enum UserRoleEnum {
-        User, ADMIN
+        USER, ADMIN
     }
 }
 
