@@ -1,6 +1,6 @@
-package sw_design.YNUMarketplace.springSecurity.redis.service;
+package sw_design.YNUMarketplace.springSecurity.redis.service.jwt;
 
-import sw_design.YNUMarketplace.springSecurity.redis.model.RedisRefreshToken;
+import sw_design.YNUMarketplace.springSecurity.redis.model.jwt.RedisRefreshToken;
 
 import java.util.Optional;
 

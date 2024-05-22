@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import sw_design.YNUMarketplace.config.collections.JwtConfig;
 import sw_design.YNUMarketplace.config.contant.JwtConstants;
-import sw_design.YNUMarketplace.springSecurity.redis.dto.AccessTokenDto;
-import sw_design.YNUMarketplace.springSecurity.redis.dto.RefreshTokenDto;
-import sw_design.YNUMarketplace.springSecurity.redis.dto.TokenSubAndRoleDto;
-import sw_design.YNUMarketplace.springSecurity.redis.model.RedisRefreshToken;
-import sw_design.YNUMarketplace.springSecurity.redis.service.JwtRedisService;
+import sw_design.YNUMarketplace.springSecurity.redis.dto.jwt.AccessTokenDto;
+import sw_design.YNUMarketplace.springSecurity.redis.dto.jwt.RefreshTokenDto;
+import sw_design.YNUMarketplace.springSecurity.redis.dto.jwt.TokenSubAndRoleDto;
+import sw_design.YNUMarketplace.springSecurity.redis.model.jwt.RedisRefreshToken;
+import sw_design.YNUMarketplace.springSecurity.redis.service.jwt.JwtRedisService;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
@@ -99,12 +99,12 @@ public class JwtTokenProvider {
                 .signWith(secretKey,SignatureAlgorithm.HS256)
                 .compact();
 
-        RedisRefreshToken refreshTokenDto = RedisRefreshToken.builder()
+        RedisRefreshToken refreshToken = RedisRefreshToken.builder()
                 .id(managerEmailId)
                 .refrehToken(jwt)
                 .build();
 
-        redisService.save(refreshTokenDto);
+        redisService.save(refreshToken);
 
         return RefreshTokenDto.builder()
                 .refreshToken(jwt)
