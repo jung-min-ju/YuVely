@@ -34,3 +34,33 @@ security:
 
     #refreshToken time : 1000L * 60 * 60 * 24 * 5 //432000000
     #accessToken time : 1000L * 60 * 60 * 24 * 3 //259200000
+
+springdoc:
+  swagger-ui:
+    groups-order: DESC
+    tags-sorter: alpha
+    operations-sorter: method
+    disable-swagger-default-url: true
+    display-request-duration: true
+  api-docs:
+    path: ${SPRING_DOCS_PATH}
+  show-actuator: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  paths-to-match: /**
+
+mail:
+  host: ${MAIL_HOST}
+  port: ${MAIL_PORT}
+  adminmail: ${MAIL_ADMIN}
+  password: ${MAIL_PASSWORD}
+  smtpAuth: true
+  smtpSslEnable: true
+  smtpStarttlsEnable: false
+  smtpSslTrust: ${SMTP_SSL_TRUST}
+
+sms:
+  apiKey: ${SMS_APIKEY}
+  secretKey: ${SMS_SECRET_KEY}
+  adminphone: ${SMS_ADMIN}
+
