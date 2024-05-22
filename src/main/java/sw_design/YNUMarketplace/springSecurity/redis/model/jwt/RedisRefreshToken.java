@@ -1,4 +1,4 @@
-package sw_design.YNUMarketplace.springSecurity.redis.model;
+package sw_design.YNUMarketplace.springSecurity.redis.model.jwt;
 
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;

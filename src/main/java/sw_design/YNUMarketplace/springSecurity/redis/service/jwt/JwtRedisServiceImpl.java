@@ -1,10 +1,10 @@
-package sw_design.YNUMarketplace.springSecurity.redis.service;
+package sw_design.YNUMarketplace.springSecurity.redis.service.jwt;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import sw_design.YNUMarketplace.springSecurity.redis.model.RedisRefreshToken;
-import sw_design.YNUMarketplace.springSecurity.redis.repository.RefreshTokenRepository;
+import sw_design.YNUMarketplace.springSecurity.redis.model.jwt.RedisRefreshToken;
+import sw_design.YNUMarketplace.springSecurity.redis.repository.jwt.RefreshTokenRepository;
 
 import java.util.Optional;
 

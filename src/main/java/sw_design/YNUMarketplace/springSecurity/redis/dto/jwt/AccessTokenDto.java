@@ -1,4 +1,4 @@
-package sw_design.YNUMarketplace.springSecurity.redis.dto;
+package sw_design.YNUMarketplace.springSecurity.redis.dto.jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
