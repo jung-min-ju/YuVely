@@ -37,7 +37,7 @@ public class JwtTokenProvider {
         this.redisService = redisService;
     }
 
-    public String resolveAccessToken(HttpServletRequest request) {
+    public String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(BEARER_TYPE)) {
             return bearerToken.substring(7);
@@ -70,7 +70,7 @@ public class JwtTokenProvider {
                 .issuedAt(now)
                 .expiration(accessExpiredTime)
                 .and()
-                .signWith(secretKey, SignatureAlgorithm.HS256)
+                .signWith(secretKey, Jwts.SIG.HS256)
                 .compact();
 
         return AccessTokenDto.builder()
@@ -96,7 +96,7 @@ public class JwtTokenProvider {
                 .issuedAt(now)
                 .expiration(refreshExpiredTime)
                 .and()
-                .signWith(secretKey,SignatureAlgorithm.HS256)
+                .signWith(secretKey, Jwts.SIG.HS256)
                 .compact();
 
         RedisRefreshToken refreshToken = RedisRefreshToken.builder()
