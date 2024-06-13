@@ -6,12 +6,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import sw_design.YNUMarketplace.businessProcess.auth.dto.auth.SignInDto;
@@ -36,7 +36,7 @@ public class AuthController {
     @Operation(summary = "signUp Api summary", description = "회원가입 시 사용할 api 명세서")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "success",
-            content = {@Content(schema = @Schema(implementation = AuthController.class))}),
+            content = {@Content(schema = @Schema(implementation = String.class))}),
             @ApiResponse(responseCode = "400", description = "Not founc"),
     })
     public ResponseEntity<?> authSignup(@RequestBody @Valid SignUpDto signUpDto, BindingResult bindingResult ) throws IOException {
@@ -46,6 +46,15 @@ public class AuthController {
         return new ResponseEntity<>(ControllerConstants.completeSignUp, HttpStatus.OK);
     }
 
+    @Transactional
+    @Operation(summary = "로그인 api", description = "로그인 api")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved recruitments",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = AllJwtTokenDto.class))),
+            @ApiResponse(responseCode = "400", description = "Invalid input",
+                    content = @Content)
+    })
     @PostMapping("/signIn")
     public ResponseEntity<?> authSignIn(@RequestBody @Valid SignInDto signDto, BindingResult bindingResult) {
         // BindingResult 에러 처리
