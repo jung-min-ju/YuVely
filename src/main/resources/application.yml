@@ -52,15 +52,15 @@ springdoc:
 mail:
   host: ${MAIL_HOST}
   port: ${MAIL_PORT}
-  adminmail: ${MAIL_ADMIN}
+  adminMail: ${MAIL_ADMIN}
   password: ${MAIL_PASSWORD}
   smtpAuth: true
   smtpSslEnable: true
   smtpStarttlsEnable: false
-  smtpSslTrust: ${SMTP_SSL_TRUST}
+  smtpSslTrust: ${MAIL_SMTP_SSL_TRUST}
 
 sms:
   apiKey: ${SMS_APIKEY}
   secretKey: ${SMS_SECRET_KEY}
-  adminphone: ${SMS_ADMIN}
+  adminPhone: ${SMS_ADMIN}
 
