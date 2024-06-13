@@ -48,7 +48,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         try{
-            String token = jwtTokenProvider.resolveAccessToken(request);
+            String token = jwtTokenProvider.resolveToken(request);
 
             if(token==null){
                 throw new TokenMissingException();
@@ -66,7 +66,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     HttpStatus.UNAUTHORIZED.value()
             );
             return;
-        } catch (SignatureException e){ // 비밀키 일치 X 처리
+        } catch (SecurityException e){ // 비밀키 일치 X 처리
             writeJsonToResponse(
                     response,
                     TokenExceptonMessage.SignatureNotMatchException,
@@ -153,13 +153,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         Set<String> openUrlPatterns = new HashSet<>(Arrays.asList(
                 "/api/auth",
                 "/api/verify",
+                "/api/verify/send/email",
                 "/static/**",
                 "/swagger-ui/",
                 "/swagger-resources",
                 "/v3/api-docs",
                 "/api-docs",
                 "/swagger-ui/",
-                "/v3/api-docs/swagger-config"
+                "/v3/api-docs/swagger-config",
+                "/favicon.ico"
         ));
         return openUrlPatterns.stream().noneMatch(requestURI::startsWith);
 
