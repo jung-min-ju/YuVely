@@ -17,7 +17,7 @@ import java.util.Properties;
 public class EmailConfig {
     private String host;
     private int port;
-    private String adminmail;
+    private String adminMail;
     private String password;
     private boolean smtpAuth; //이 속성은 SMTP 서버에 인증이 필요한지 여부를 나타낸다.. 값이 true이면 메일을 보내기 전에 사용자 이름과 비밀번호를 이용해 서버에 로그인해야 한다. (true)
     private boolean smtpSslEnable; //SMTP 서버와의 연결에 SSL(Secure Sockets Layer)을 사용할지 여부를 나타낸다. 값이 true이면 데이터 전송이 암호화되어 보안이 강화된다. (false)
@@ -28,7 +28,7 @@ public class EmailConfig {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl(); //이 클래스는 메일 서버와의 연결 설정(host, port, username, password 등)을 관리합니다.
         mailSender.setHost(this.host);
         mailSender.setPort(this.port) ;
-        mailSender.setUsername(this.adminmail);
+        mailSender.setUsername(this.adminMail);
         mailSender.setPassword(this.password);
 
         Properties props = mailSender.getJavaMailProperties(); //JavaMail API의 속성은 메일 서버와의 연결 방식(smtp, pop3, imap 등), 보안 설정(SSL, TLS 등), 인증 방식 등을 설정하는 데 사용
