@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @OpenAPIDefinition(
-        info = @Info(title = "아지트 API 명세서",
-                description = "아지트 서비스 API 명세서",
+        info = @Info(title = "YUVELY api 명세서",
+                description = "소설 API 명세서",
                 version = "v1"))
 @Configuration
 public class SwaggerConfig {
