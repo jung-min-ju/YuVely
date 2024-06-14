@@ -34,7 +34,6 @@ dependencies {
 	//sms
 	implementation group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: '5.3.1' //sms smtp 사용 위함
 	implementation 'net.nurigo:sdk:4.2.7' //coolsms 사용위한 gradle
-	implementation 'net.nurigo:javasdk:2.2' //json 객체 변환 위한 gradle
 	//implementation 'net.nurigo:sdk:4.3.0'
 	//Image AWS S3
 	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
@@ -51,3 +50,15 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+//사용자 지정 jar 파일
+bootJar {
+	archiveFileName = 'yuVely.jar'
+}
+
+
+//기본jar 파일 생성 막음
+jar {
+	enabled = false
+}
+
